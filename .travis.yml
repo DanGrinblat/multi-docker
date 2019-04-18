@@ -9,14 +9,14 @@ script:
   - docker run dangrinblat/react-test npm test -- --coverage
 
 after_success:
-    - docker build -t dangrinblat/multi-client ./client
-    - docker build -t dangrinblat/multi-nginx ./nginx
-    - docker build -t dangrinblat/multi-server ./server
-    - docker build -t dangrinblat/multi-worker ./worker
+    - docker build -t dgrinblat/multi-client ./client
+    - docker build -t dgrinblat/multi-nginx ./nginx
+    - docker build -t dgrinblat/multi-server ./server
+    - docker build -t dgrinblat/multi-worker ./worker
     #log into docker cli
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #take those images and push them
-    - docker push dangrinblat/multi-client
-    - docker push dangrinblat/multi-nginx
-    - docker push dangrinblat/multi-server
-    - docker push dangrinblat/multi-worker
+    - docker push dgrinblat/multi-client
+    - docker push dgrinblat/multi-nginx
+    - docker push dgrinblat/multi-server
+    - docker push dgrinblat/multi-worker
